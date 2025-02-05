@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piscine Web</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* จัดเรียงเนื้อหาในแนวตั้ง */
+            justify-content: flex-start;  /* จัดให้อยู่จากด้านบน */
+            align-items: center;  /* จัดให้อยู่ตรงกลางแนวนอน */
+            height: 100vh;            /* ทำให้สูงเต็มหน้าจอ */
+            margin: 0;                /* ลบระยะขอบ */
+            background-color: #f0f0f0; /* เพิ่มสีพื้นหลังนิดหน่อย */
+        }
+        h1 {
+            font-size: 4rem;          /* เพิ่มขนาดตัวอักษรให้ใหญ่ขึ้น */
+            color: #623535;              /* สีตัวอักษร */
+            margin-top: 20px;          /* เพิ่มระยะห่างจากด้านบน */
+            margin-bottom: 20px;    /* เพิ่มระยะห่างระหว่างหัวข้อกับรูป */
+        }
+        .image-container {
+            display: flex;
+            flex-direction: row; /* จัดรูปให้อยู่ในแนวนอน */
+            justify-content: center; /* จัดให้อยู่กึ่งกลาง */
+            align-items: center;  /* จัดให้รูปอยู่กึ่งกลางแนวนอน */
+        }
+        img {
+            width: 300px;           /* กำหนดความกว้างของรูป */
+            height: 200px;           /* ให้ความสูงปรับตามอัตราส่วน */
+            margin: 10px;           /* ระยะห่างระหว่างรูป */
+        }
+    </style>    
+</head>
+<body>
+    <h1>Piscine Web</h1>
+    <div class="image-container">
+        <a href="https://www.youtube.com/watch?v=INscMGmhmX4" target="_blank">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.WPwCPQeTKwG5nrRg_oGSQAHaHP&pid=Api&P=0&h=180" alt="Image 1">
+        </a>
+        <img src="https://tse4.mm.bing.net/th?id=OIP.4J4a102IHTzLONJaiQxHfwHaIG&pid=Api&P=0&h=180" alt="Image 2">
+    </div>
+</body>
+</html>
