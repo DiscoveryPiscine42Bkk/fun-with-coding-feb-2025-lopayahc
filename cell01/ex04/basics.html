@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics</title>
+    <style>
+        body {
+            background-color: pink;       /* พื้นหลังสีชมพู */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: white;                 /* ตัวอักษรสีขาว */
+            text-align: center;           /* จัดให้อยู่กึ่งกลาง */
+            font-size: 3rem;              /* ขนาดใหญ่ */
+            margin-top: 30px;
+        }
+        .image-container {
+            display: flex;                /* จัดเรียงรูปให้อยู่แนวนอน */
+            justify-content: center;      /* จัดให้อยู่ตรงกลาง */
+            gap: 20px;                    /* ระยะห่างระหว่างรูป */
+            margin: 20px 0;
+        }
+        .image-box {
+            text-align: center;           /* จัดให้ลิงก์อยู่ใต้รูปตรงกลาง */
+        }
+        img {
+        width: 300px;               /* กำหนดความกว้าง */
+        height: 300px;              /* กำหนดความสูงให้เท่ากัน */
+        object-fit: cover;          /* ทำให้รูปภาพปรับขนาดให้เต็มโดยไม่บิดเบี้ยว */
+        border: 2px solid white;    /* ขอบสีขาว */
+        border-radius: 10px;        /* ทำให้ขอบมน */
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background-color: white;      /* เส้นคั่นสีขาว */
+            margin: 30px 0;
+        }
+        .copyright {
+            text-align: right;            /* จัดข้อความไปทางขวา */
+            font-family: monospace;       /* ใช้ฟอนต์ monospace */
+            font-style: italic;           /* ทำให้เป็นตัวเอียง */
+            padding: 10px 20px;           /* เพิ่มระยะขอบ */
+        }
+        a {
+            color: #000;                  /* สีของลิงก์ */
+            text-decoration: none;        /* เอาเส้นใต้ลิงก์ออก */
+            font-weight: bold;            /* ทำให้ตัวหนา */
+        }
+        a:hover {
+            text-decoration: underline;   /* แสดงเส้นใต้เมื่อเมาส์ชี้ */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- หัวข้อใหญ่พร้อมอักขระพิเศษ -->
+    <h1>Thien Chareon Shop🧺</h1>
+
+    <!-- รูปภาพและลิงก์ใต้รูป -->
+    <div class="image-container">
+        <div class="image-box">
+            <img src="https://tse3.mm.bing.net/th?id=OIP._xEBDoAuZGQJEEueqqSZ_wHaHa&pid=Api&P=0&h=180" alt="Shop 1">
+            <p><a href="https://www.amazon.com" target="_blank">Visit Amazon</a></p>
+        </div>
+        <div class="image-box">
+            <img src="https://pngimg.com/uploads/ebay/ebay_PNG7.png" alt="Shop 2">
+            <p><a href="https://www.ebay.com" target="_blank">Visit eBay</a></p>
+        </div>
+    </div>
+
+    <!-- เส้นคั่นแนวนอน -->
+    <hr>
+
+    <!-- ข้อความลิขสิทธิ์ -->
+    <div class="copyright">
+        © clamthie 2025
+    </div>
+
+</body>
+</html>
