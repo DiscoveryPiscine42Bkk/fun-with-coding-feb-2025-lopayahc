@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="backgroound.css" /> 
+</head>
+<body>
+    <div class="bg">
+        <button class="rbtn" onclick="changeBodyColor()">Click Here!!</button>
+    </div>
+</body>
+<script>
+    function changeBodyColor() {
+    let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    
+    // Set the body's background to the random color
+    document.body.style.backgroundColor = randomColor;
+}
+</script>
+
+</html>
