@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 2rem;
+    color: #6c757d;
+}
+
+h3 {
+    text-align: center;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin: auto;
+    display: block;
+}
+
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        max-height: 300px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+.container{
+    margin-top: 20px;
+}
