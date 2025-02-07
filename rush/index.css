@@ -24,12 +24,50 @@ body {
 .profile-img { width: 150px; border-radius: 50%; }
 
 .bg-primary {
-    background: url(https://d.wattpad.com/story_parts/673260049/images/1574bada47311c9f522965267357.gif) 
+    background: url(https://media.giphy.com/media/Yk211oEXnbpH00Tgv3/giphy.gif) 
         no-repeat center center;
-    background-size: cover;
+    background-size: cover; /* ทำให้ภาพครอบคลุมพื้นที่ทั้งหมด */
     width: 100%;
-    height: 60vh;
+    height: 60vh; /* ปรับความสูงเป็น 60% ของความสูงหน้าจอ */
+    min-height: 300px; /* ตั้งค่าความสูงขั้นต่ำ เพื่อป้องกันไม่ให้ภาพหดตัวเล็กเกินไป */
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .bg-primary {
+        height: 40vh; /* ลดความสูงเมื่อหน้าจอเป็นขนาดกลางถึงเล็ก */
+    }
+}
+
+@media (max-width: 576px) {
+    .bg-primary {
+        height: 30vh; /* ลดความสูงมากขึ้นเมื่อหน้าจอเล็กสุด (เช่น มือถือ) */
+    }
+}
+
+/* ให้รูปภาพมีขนาดพอดี ไม่ใหญ่ไป */
+.nimg-fluid {
+    max-width: 100%; /* กำหนดให้ภาพไม่เกินขนาดของคอนเทนเนอร์ */
+    max-height: 300px; /* จำกัดความสูงของภาพ */
+    width: auto; /* ให้ภาพรักษาสัดส่วน */
+    height: auto; /* ให้ภาพไม่ยืดหรือบิดเบือน */
+    display: block; /* ทำให้ภาพเป็นบล็อก เพื่อใช้ margin auto */
+    margin: 0 auto; /* จัดตำแหน่งให้อยู่ตรงกลาง */
+    object-fit: cover; /* ให้ภาพครอบคลุมพื้นที่โดยไม่ยืดเบี้ยว */
+}
+
+/* ปรับขนาดภาพในหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+    .nimg-fluid {
+        max-width: 80%; /* ลดขนาดภาพเมื่อหน้าจอเล็ก */
+    }
+}
+
+/* จอเล็กมาก (มือถือ) */
+@media (max-width: 480px) {
+    .nimg-fluid {
+        max-width: 70%; /* ลดขนาดลงเมื่อหน้าจอเล็กที่สุด */
+    }
 }
