@@ -30,7 +30,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* เพิ่มเงาให้ข้อความดูเด่น */
 }
+
 
 /* ปรับตำแหน่ง Header Text */
 .header-text {
@@ -103,5 +106,59 @@ header {
         max-width: 70%; /* ลดขนาดลงเมื่อหน้าจอเล็กที่สุด */
     }
 }
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-primary {
+    background-color: #28a745;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.footer {
+    background-color: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #28a745;
+}
+
+body {
+    scroll-behavior: smooth; /* เพิ่มการเลื่อนที่นุ่มนวล */
+}
+
+
 
 
