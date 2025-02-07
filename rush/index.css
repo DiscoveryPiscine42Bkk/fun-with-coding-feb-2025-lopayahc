@@ -1,0 +1,35 @@
+body { 
+    padding-top: 56px; 
+    background: url('https://source.unsplash.com/random/1600x900') no-repeat center center/cover;
+    animation: fadeIn 2s ease-in-out;
+}
+.navbar { 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+}
+.resume-section { 
+    padding: 60px 0; 
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.btn-hover:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}        
+.section { padding: 60px 0; }
+.profile-img { width: 150px; border-radius: 50%; }
+
+.bg-primary {
+    background: url(https://d.wattpad.com/story_parts/673260049/images/1574bada47311c9f522965267357.gif) 
+        no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

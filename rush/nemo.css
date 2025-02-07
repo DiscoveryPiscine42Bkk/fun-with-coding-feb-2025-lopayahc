@@ -1,0 +1,81 @@
+body {
+    padding-top: 56px;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.profile-img {
+    height: 100%; /* ให้สูงเท่ากับ Header */
+    width: auto; /* ปรับขนาดอัตโนมัติ */
+    border-radius: 0; /* ไม่ให้เป็นวงกลม */
+    object-fit: cover; /* ให้รูปภาพเต็มพื้นที่ได้ */
+}
+
+.bg-primary {
+    background: url(https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=1950&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fA%3D%3D) 
+        no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ปรับตำแหน่ง Header Text */
+.header-text {
+    margin-top: 100px; /* ค่าปกติ */
+}
+
+.footer {
+    font-style: italic;
+    padding: 10px;
+}
+
+/* ปรับขนาดและตำแหน่งตอนจอเล็ก */
+@media (max-width: 768px) { 
+    .header-text {
+        margin-top: 20px; /* ขยับขึ้น */
+        text-align: center;
+    }
+    .profile-img {
+        max-width: 50%; /* ทำให้ภาพเล็กลง */
+        height: auto;
+    }
+}
+
+/* จอเล็กมาก (มือถือ) */
+@media (max-width: 480px) { 
+    .header-text {
+        margin-top: 0px; /* ขยับขึ้นสุด */
+    }
+    .profile-img {
+        max-width: 40%; /* ย่อรูปลงไปอีก */
+    }
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between; /* ทำให้พื้นที่ใน header กระจาย */
+    align-items: center; /* จัดแนวแนวตั้ง */
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 20px;
+    }
+}
+
+
