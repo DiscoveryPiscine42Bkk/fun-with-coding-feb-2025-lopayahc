@@ -130,12 +130,12 @@ ul {
     padding: 0;
 }
 
-ul li {
+/* ul li {
     padding: 8px 0;
     font-size: 1.1rem;
     color: #333;
     transition: background-color 0.3s;
-}
+} */
 
 .footer {
     background-color: #212529;
