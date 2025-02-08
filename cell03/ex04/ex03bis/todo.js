@@ -1,48 +1,57 @@
-document.addEventListener("DOMContentLoaded", loadTodos);
+const SECRET_KEY = "MySecretKey123"; // ใช้สำหรับเข้ารหัสและถอดรหัส
 
-function newTodo() {
-    let task = prompt("Enter a new TO DO:");
-    if (task && task.trim() !== "") {
-        addTodo(task.trim());
-        saveTodos();
-    }
-}
+        document.addEventListener("DOMContentLoaded", loadTodos);
 
-function addTodo(text) {
-    let ftList = document.getElementById("ft_list");
+        function newTodo() {
+            let task = prompt("Enter a new TO DO:");
+            if (task && task.trim() !== "") {
+                addTodo(task.trim());
+                saveTodos();
+            }
+        }
 
-    let todoDiv = document.createElement("div");
-    todoDiv.className = "todo";
-    todoDiv.textContent = text;
-    todoDiv.addEventListener("click", () => removeTodo(todoDiv));
+        function addTodo(text) {
+            let ftList = document.getElementById("ft_list");
 
-    ftList.prepend(todoDiv);
-}
+            let todoDiv = document.createElement("div");
+            todoDiv.className = "todo";
+            todoDiv.textContent = text; // ป้องกัน XSS
+            todoDiv.addEventListener("click", () => removeTodo(todoDiv));
 
-function removeTodo(todo) {
-    if (confirm("Do you really want to delete this TO DO?")) {
-        todo.remove();
-        saveTodos();
-    }
-}
+            ftList.prepend(todoDiv);
+        }
 
-function saveTodos() {
-    let todos = [];
-    document.querySelectorAll(".todo").forEach(todo => {
-        todos.push(todo.textContent);
-    });
+        function removeTodo(todo) {
+            if (confirm("Do you really want to delete this TO DO?")) {
+                todo.remove();
+                saveTodos();
+            }
+        }
 
-    // ใช้ encodeURIComponent() เพื่อให้ `;` และอักขระพิเศษปลอดภัย
-    let safeTodos = encodeURIComponent(JSON.stringify(todos));
-    document.cookie = "todos=" + safeTodos + "; path=/";
-}
+        function saveTodos() {
+            let todos = [];
+            document.querySelectorAll(".todo").forEach(todo => {
+                todos.push(todo.textContent);
+            });
 
-function loadTodos() {
-    let cookies = document.cookie.split("; ");
-    let todoCookie = cookies.find(row => row.startsWith("todos="));
-    
-    if (todoCookie) {
-        let todoList = JSON.parse(decodeURIComponent(todoCookie.split("=")[1]));
-        todoList.reverse().forEach(todo => addTodo(todo)); // ให้ลำดับเหมือนเดิม
-    }
-}
+            let jsonData = JSON.stringify(todos);
+            let encryptedData = CryptoJS.AES.encrypt(jsonData, SECRET_KEY).toString();
+            document.cookie = "todos=" + encodeURIComponent(encryptedData) + "; path=/";
+        }
+
+        function loadTodos() {
+            let cookies = document.cookie.split("; ");
+            let todoCookie = cookies.find(row => row.startsWith("todos="));
+
+            if (todoCookie) {
+                let encryptedData = decodeURIComponent(todoCookie.split("=")[1]);
+
+                try {
+                    let decryptedData = CryptoJS.AES.decrypt(encryptedData, SECRET_KEY).toString(CryptoJS.enc.Utf8);
+                    let todoList = JSON.parse(decryptedData);
+                    todoList.reverse().forEach(todo => addTodo(todo)); // ให้ลำดับเหมือนเดิม
+                } catch (e) {
+                    console.error("Failed to decrypt data:", e);
+                }
+            }
+        }
