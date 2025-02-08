@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator (jQuery)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000000;
+        }
+
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input, select, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="leftOperand" placeholder="Enter number">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="rightOperand" placeholder="Enter number">
+        <button id="calculateBtn">Try me!</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#calculateBtn").click(function () {
+                let leftOperand = $("#leftOperand").val().trim();
+                let rightOperand = $("#rightOperand").val().trim();
+                let operator = $("#operator").val();
+
+                // ตรวจสอบว่าค่าที่ป้อนเป็นตัวเลข
+                if (!$.isNumeric(leftOperand) || !$.isNumeric(rightOperand)) {
+                    alert("Error :(");
+                    console.log("Error :(");
+                    return;
+                }
+
+                let num1 = parseInt(leftOperand);
+                let num2 = parseInt(rightOperand);
+
+                // ป้องกันค่าติดลบ
+                if (num1 < 0 || num2 < 0) {
+                    alert("Error :(");
+                    console.log("Error :(");
+                    return;
+                }
+
+                // ป้องกันการหารหรือหาโมดูโลด้วยศูนย์
+                if ((operator === "/" || operator === "%") && num2 === 0) {
+                    alert("It's over 9000!");
+                    console.log("It's over 9000!");
+                    return;
+                }
+
+                // คำนวณผลลัพธ์
+                let result;
+                switch (operator) {
+                    case "+": result = num1 + num2; break;
+                    case "-": result = num1 - num2; break;
+                    case "*": result = num1 * num2; break;
+                    case "/": result = num1 / num2; break;
+                    case "%": result = num1 % num2; break;
+                }
+
+                // แสดงผลลัพธ์
+                alert(result);
+                console.log(result);
+            });
+
+            // แสดง alert ทุก 30 วินาที
+            setInterval(function () {
+                alert("Please, use me...");
+            }, 30000);
+        });
+    </script>
+
+</body>
+</html>
