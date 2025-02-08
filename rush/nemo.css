@@ -64,7 +64,7 @@ body {
         margin-top: 0px; /* ขยับขึ้นสุด */
     }
     .profile-img {
-        max-width: 40%; /* ย่อรูปลงไปอีก */
+        max-width: 100%; /* ย่อรูปลงไปอีก */
     }
 }
 
